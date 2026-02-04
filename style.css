@@ -32,6 +32,11 @@ body {
   box-shadow: 0px 0px 6px #333;
 }
 
+.dropdown{
+    position:relative;
+    margin-right: 10px;
+    
+}
 .hambar {
     width: 40px;
     height: 4px;
@@ -41,13 +46,33 @@ body {
 
 .hamburger{
     height: 36px;   
-    margin-right: 10px;
     border:2px solid #FFF;
 }
 .hamburger:hover{
     box-shadow: 0px 0px 6px #333;
 }
-
+.navigationlist{
+    display:none;
+    position:absolute;
+    width: 150px;
+    right:0px;
+    /*! margin-left:auto; */
+    margin-right: 10px;
+    margin-top: 0px;
+    background-color: rgba(122, 222, 222, 1);
+    border: 2px solid #000;
+}
+.dropdown:hover .navigationlist {
+    display:block;
+   
+}
+.navigationlist:hover{
+    /*display:block;*/
+}
+.link{
+    padding: 5px;
+    /*! padding-right: 25px; */
+}
 
 /*content section*/
 
@@ -69,7 +94,5 @@ body {
     padding-left: 5vw;
     background-color:rgba(12, 122, 122, 0.3) ;
 }
-
-
 
 
