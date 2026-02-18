@@ -31,8 +31,10 @@ hr{
  }
 
 h1{
-    margin-left:10px;
+    padding-left:10px;
+    width:20vw;
 }
+
 
 #homebutton{
     padding:6px;
