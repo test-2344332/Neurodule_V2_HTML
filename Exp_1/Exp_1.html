@@ -2,14 +2,14 @@
 <html>
 
 <head>
-    <title>Expérience 1</title>
+    <title>Arc réflexe</title>
     <link rel="stylesheet" href="../General/style.css">
 </head>
 
 <body>
     <div class="header" id="banner">
         <h1>Neurodule V2</h1>
-        <h2>Expérience 1</h2>
+        <h2>Arc réflexe</h2>
         <div class="leftfilling"> </div>
         <a href="../Homepage/Homepage.html" class="intlink" id="homebutton">Home</a>
         <div class="dropdown">
@@ -26,10 +26,34 @@
     </div>
     <hr>
     <div class="main">
-        <div class="instructions"></div>
+        <div class="instructions">
+            <div id="CommandesSpecifiques">
+            <div id="plume" onclick="PresencePlume()"> plume </div>
+            <div id="bougie" onclick="PresenceBougie()"> bougie </div>
+            <div id="addneuronebtn" onclick="addneurone()"> ajouter neurone </div>
+            <div id="removeneuronebtn" onclick="removeneurone()"> retirer neurone </div>
+            </div>
+            <div id="CommandesGenerales">
+                <div class="comline" id="startstop">
+                    <div class="com" id="startbutton" onclick="startexp()" >start</div>
+                    <div class="com" id="stopbutton" onclick="stopexp()">stop</div>
+                </div>
+                <div class="comline" id="pauseplusminus">
+                    <div class="com" id="minusbutton" onclick="goback()"><<</div>
+                    <div class="com" id="pauseplaybutton" onclick="pauseplay()">=</div>
+                    <div class="com" id="plusbutton" onclick="goforward()">>></div>
+                </div>
+                <div class="comline">
+                    <div class="com" id="restartbutton" onclick="restart()">restart</div>
+                </div>
+            </div>
+
+        </div>
         <div class="experiment"> The content of the document</div>
     </div>
     <script src="../General/stylescript.js"></script>
+    <script src="Exp_1_script.js"></script>
+    
 </body>
 
 </html>

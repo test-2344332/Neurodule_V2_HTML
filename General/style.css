@@ -116,5 +116,26 @@ h1{
     padding-left: 5vw;
     background-color:rgba(12, 122, 122, 0.3) ;
 }
+/*commandes*/
+
+    /*spécifique*/
+#CommandesSpecifiques{
+    height : 70%;
+}
+    /*general*/
+#CommandesGenerales{
+    display: block;
+    align-content: center;
+}
+.comline{
+    display:flex;
+    justify-content: center;
+}
+.com{
+    padding: 5px;
+    border:2px solid #000;
+    border-radius: 10px;
+    margin: 5px;
+}
 
 
