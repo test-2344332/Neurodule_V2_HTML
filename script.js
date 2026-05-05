@@ -1,11 +1,12 @@
 class Display {
-	constructor(x,y,h,w){
+	constructor(x,y,h,w,l){
 		this.sizex = x;
 		this.sizey = y;
 		this.height = h;
 		this.width = w;
 		this.ctx;
 		this.contents = [];
+		this.layers = l;
 	}
 
 	refresh(){
@@ -16,12 +17,25 @@ class Display {
 	}
 
 	get_value(value){
-		return(this[value])
+		return(this[value]);
+	}
+
+	sort_content(){
+		let new_cont = [];
+		let l = this.layers
+		for (let i = 0;i < l ; i++){
+			for (let el of this.contents){
+				if (el.get_value("#depth") == i){
+					new_cont.push(el);
+				}
+			}
+		}
+		this.contents = new_cont;
 	}
 }
 
 class Element {
-	type;
+	#type;
 	#posx;
 	#posy;
 	#depth;
@@ -29,7 +43,7 @@ class Element {
 	#layers;
 
 	constructor(type,x,y,d,disp,layers = 5){
-		this.type = type;
+		this.#type = type;
 		this.#posx = x;
 		this.#posy = y;
 		this.#depth = d;
