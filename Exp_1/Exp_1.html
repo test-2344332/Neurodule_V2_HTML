@@ -29,6 +29,9 @@
         <div class="instructions">
             <div id="CommandesSpecifiques">
             <div id="plume" onclick="PresencePlume()"> plume </div>
+            <div id="bougie" onclick="PresenceBougie()"> bougie </div>
+            <div id="addneuronebtn" onclick="addneurone()"> ajouter neurone </div>
+            <div id="removeneuronebtn" onclick="removeneurone()"> retirer neurone </div>
             <div id="bougie" onclick="PresenceBougie()">bougie</div>
             </div>
             <div id="CommandesGenerales">
@@ -37,6 +40,12 @@
                     <div class="com" id="stopbutton" onclick="stopexp()">stop</div>
                 </div>
                 <div class="comline" id="pauseplusminus">
+                    <div class="com" id="minusbutton" onclick="goback()"><<</div>
+                    <div class="com" id="pauseplaybutton" onclick="pauseplay()">=</div>
+                    <div class="com" id="plusbutton" onclick="goforward()">>></div>
+                </div>
+                <div class="comline">
+                    <div class="com" id="restartbutton" onclick="restart()">restart</div>
                     <div class="com" id="minusbutton">-</div>
                     <div class="com" id="pauseplaybutton">=</div>
                     <div class="com" id="plusbutton">+</div>
