@@ -28,7 +28,30 @@
     <div class="main">
         <div class="instructions">
             <div id="CommandesSpecifiques">
+                <div id="size">
+                    <div id="zoominflux1000" onclick="influx1000()">1'000</div>
+                    <div id="zoominflux10000" onclick="influx10000()">10'000</div>
+                    <div id="laboinflux" onclick="influxlabo()">Labo</div>
+                </div>
+                <div id="commandes1000influx">
+                    <div id="stimulateurElectrique" onclick="changeStimulateurE()">Stimulateur electrique +</div>
+                    <div id="stimulateurTriple" onclick="changeStimulateur3()">Stimulateur triple +</div>
+                    <div id="mVmetre">mVmetre +</div>
+                    <div id="2mVmetre">2 mVmetre +</div>
+                    <div id="controlestime">
+                        <input type="range" min="-80" max="20" value="-80" class="slider"
+                                id="stime1"><span id="stimeoutput"></span>
+                    </div>
+                    <div id="controle3stim">
+                            <div><input type="range" min="-80" max="20" value="-80" class="slider" id="3stim1"><span id="3stim1output"></span></div>
+                            <div><input type="range" min="-80" max="20" value="-80" class="slider" id="3stim2"><span id="3stim2output"></span></div>
+                            <div><input type="range" min="-80" max="20" value="-80" class="slider" id="3stim3"><span id="3stim3output"></span></div>                        
+                    </div>
+                </div>
+                <div id="commandes10000influx"></div>
+                <div id="commandeslaboinflux"></div>
             </div>
+
             <div id="CommandesGenerales">
                 <div class="comline" id="startstop">
                     <div class="com" id="startbutton" onclick="startexp()">start</div>
@@ -43,10 +66,11 @@
                     <div class="com" id="restartbutton" onclick="restart()">restart</div>
                 </div>
             </div>
-            </div>
-            <div class="experiment"> The content of the document</div>
         </div>
-        <script src="../General/stylescript.js"></script>
+        <div class="experiment"> The content of the document</div>
+    </div>
+    <script src="../General/stylescript.js"></script>
+    <script src="Exp_3_script.js"></script>
 </body>
 
 </html>
