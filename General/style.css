@@ -119,9 +119,13 @@ h1{
 /*commandes*/
 
     /*spécifique*/
-#CommandesSpecifiques{
+#CommandesSpecifiques {
     height : 70%;
 }
+/* commandes labo */
+#CommandesSpecifiqueslabo, #labo {
+    display:none;
+    }
     /*general*/
 #CommandesGenerales{
     display: block;
