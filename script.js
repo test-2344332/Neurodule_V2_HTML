@@ -18,7 +18,9 @@ class Display {
 
 	refresh() {
 		this.sort_content();
-		this.ctx.clearRect(0,0,this.width,this.height)
+		this.ctx.clearRect(0,0,this.width,this.height);
+//		this.ctx.fillStyle = "red"
+//		this.ctx.fillRect(0,0,this.width,this.height);
 		for (let i of this.contents) {
 			i.draw(this.ctx);
 		}
