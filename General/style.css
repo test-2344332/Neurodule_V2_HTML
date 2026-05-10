@@ -121,6 +121,8 @@ h1{
     /*spécifique*/
 #CommandesSpecifiques {
     height : 70%;
+    margin-top:20px;
+    margin-left:30px;
 }
 /* commandes labo */
 #CommandesSpecifiqueslabo, #zoomsynapse {
