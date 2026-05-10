@@ -1,13 +1,13 @@
 // taille labo ou 10'000
-let labo = false
+let labosynapse = false
 
 let presencecurare = false
 let presencenervin = false
 let presencetetrodotoxine = false
 
-let btnlabo = document.getElementById("labo")
+let btnlabo = document.getElementById("labosynapse")
 let commandeslabo = document.getElementById("CommandesSpecifiqueslabo")
-let btn10000 = document.getElementById("zoom")
+let btn10000 = document.getElementById("zoomsynapse")
 let commandes10000 = document.getElementById("CommandesSpecifiques10000")
 
 let curarebtn = document.getElementById("curare")
@@ -16,14 +16,14 @@ let tetrodotoxinebtn = document.getElementById("tetrodotoxine")
 
 
 function passage10000(){
-    labo = false;
+    labosynapse = false;
     btn10000.style.display="none";
     commandes10000.style.display="block";
     btnlabo.style.display="block";
     commandeslabo.style.display="none";
 }
 function passagelabo(){
-    labo = true;
+    labosynapse = true;
     btn10000.style.display="block";
     commandes10000.style.display="none";
     btnlabo.style.display="none";
