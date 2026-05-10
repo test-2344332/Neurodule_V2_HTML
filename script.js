@@ -1,21 +1,26 @@
 let display;
 class Display {
-	constructor(x, y, h, w, l) {
+	constructor(x, y, h, w, l = 3, canvas) {
 		this.sizex = x;
 		this.sizey = y;
 		this.height = h;
 		this.width = w;
-		this.ctx;
+		this.ctx = canvas.getContext("2d");
 		this.contents = [];
 		this.old_cont = [];
 		this.layers = l;
+		canvas.style.width = w + "px";
+		canvas.style.height = h + "px";
+		canvas.width = w;
+		canvas.height = h;
+
 	}
 
 	refresh() {
 		this.sort_content();
-		for (let i = 0; i <= this.contents.length; i++) {
-			let el = this.contents[i];
-			el.draw(this.ctx);
+		this.ctx.clearRect(0,0,this.width,this.height)
+		for (let i of this.contents) {
+			i.draw(this.ctx);
 		}
 	}
 
@@ -29,7 +34,7 @@ class Display {
 			let l = this.layers;
 			for (let i = 0; i < l; i++) {
 				for (let el of this.contents) {
-					if (el.get_value("#depth") == i) {
+					if (el.get_value("depth") == i) {
 						new_cont.push(el);
 					}
 				}
@@ -42,24 +47,22 @@ class Display {
 
 class Element {
 	#type;
-	#posx;
-	#posy;
-	#depth;
+	posx;
+	posy;
+	depth;
 	#display;
 	#layers;
 
-	constructor(type, x, y, d, disp, layers = 5) {
+	constructor(type, x, y, d, disp, layers = 3) {
 		this.#type = type;
-		this.#posx = x;
-		this.#posy = y;
-		this.#depth = d;
+		this.posx = x;
+		this.posy = y;
+		this.depth = d;
 		this.#display = disp;
 		this.#layers = layers;
 	}
 
 	get_value(el) {
-		console.log(el);
-		console.log(this[el]);
 		return this[el];
 	}
 
@@ -68,7 +71,7 @@ class Element {
 	}
 
 	change_position(x, y, d = 0) {
-		let temp_x = this.#posx + x;
+		let temp_x = this.posx + x;
 		if (temp_x > this.get_display_val("width")) {
 			temp_x = this.get_display_val("width");
 			console.log(
@@ -80,8 +83,8 @@ class Element {
 				"Tried to set x out of bounds replacing with minimum value allowed",
 			);
 		}
-		this.#posx = temp_x;
-		let temp_y = this.#posy + y;
+		this.posx = temp_x;
+		let temp_y = this.posy + y;
 		if (temp_y > this.get_display_val("height")) {
 			temp_y = this.get_display_val("height");
 			console.log(
@@ -93,8 +96,8 @@ class Element {
 				"Tried to set y out of bounds replacing with minimum value allowed",
 			);
 		}
-		this.#posy = temp_y;
-		let temp_d = this.#depth + d;
+		this.posy = temp_y;
+		let temp_d = this.depth + d;
 		if (temp_d > this.#layers) {
 			temp_d = this.#layers;
 			console.log(
@@ -106,7 +109,7 @@ class Element {
 				"Tried to set depth out of bounds replacing with minimum value allowed",
 			);
 		}
-		this.#depth = temp_d;
+		this.depth = temp_d;
 	}
 }
 
@@ -118,6 +121,7 @@ class Customimage extends Element {
 	#sy;
 	#sizex;
 	#sizey;
+	active = false;
 
 	constructor(
 		posx,
@@ -130,7 +134,7 @@ class Customimage extends Element {
 		sx,
 		sy,
 		sizex,
-		sizey,
+		sizey
 	) {
 		super("image", posx, posy, depth, disp);
 		this.#prntx = prntx;
@@ -143,17 +147,19 @@ class Customimage extends Element {
 	}
 
 	draw(context) {
-		context.drawImage(
-			this.#sheet,
-			this.#sx,
-			this.#sy,
-			this.#sizex,
-			this.#sizey,
-			super.get_value("#posx"),
-			super.get_value("#posy"),
-			this.#prntx,
-			this.#prnty,
-		);
+		if (this.active) {
+			context.drawImage(
+				this.#sheet,
+				this.#sx,
+				this.#sy,
+				this.#sizex,
+				this.#sizey,
+				super.get_value("posx"),
+				super.get_value("posy"),
+				this.#prntx,
+				this.#prnty,
+			);
+		}
 	}
 
 	change_size(x, y) {
