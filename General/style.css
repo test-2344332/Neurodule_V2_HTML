@@ -121,12 +121,19 @@ h1{
     /*spécifique*/
 #CommandesSpecifiques {
     height : 70%;
+    margin-top:20px;
+    margin-left:30px;
 }
-/* commandes labo */
+/* commandes labo synapse*/
 #CommandesSpecifiqueslabo, #zoomsynapse {
     display:none;
     }
-    /*general*/
+/* stimulateurs electriques influx */
+#controlestime, #controle3stim {
+    display:none;
+}
+
+    /*commandes generales*/
 #CommandesGenerales{
     display: block;
     align-content: center;
