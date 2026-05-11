@@ -18,9 +18,9 @@ class Display {
 
 	refresh() {
 		this.sort_content();
-		this.ctx.clearRect(0,0,this.width,this.height);
-//		this.ctx.fillStyle = "red"
-//		this.ctx.fillRect(0,0,this.width,this.height);
+		this.ctx.clearRect(0, 0, this.width, this.height);
+		//		this.ctx.fillStyle = "red"
+		//		this.ctx.fillRect(0,0,this.width,this.height);
 		for (let i of this.contents) {
 			i.draw(this.ctx);
 		}
@@ -54,6 +54,7 @@ class Element {
 	depth;
 	#display;
 	#layers;
+	obj;
 
 	constructor(type, x, y, d, disp, layers = 3) {
 		this.#type = type;
@@ -136,8 +137,10 @@ class Customimage extends Element {
 		sx,
 		sy,
 		sizex,
-		sizey
+		sizey,
+		obj
 	) {
+		console.log(obj)
 		super("image", posx, posy, depth, disp);
 		this.#prntx = prntx;
 		this.#prnty = prnty;
@@ -146,6 +149,7 @@ class Customimage extends Element {
 		this.#sy = sy;
 		this.#sizex = sizex;
 		this.#sizey = sizey;
+		this.obj = obj;
 	}
 
 	draw(context) {
@@ -195,6 +199,7 @@ class Customimage extends Element {
 }
 
 function loop() {
+	exp_loop();
 	display.refresh();
 	window.requestAnimationFrame(loop);
 }

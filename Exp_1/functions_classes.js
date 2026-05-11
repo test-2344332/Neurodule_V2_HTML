@@ -10,9 +10,12 @@ function PresencePlume() {
         Boutonplume.style.color = "red";
         bougie = false;
         Boutonbougie.style.color = "black";
+        feather.armed = true;
+        candle.armed = false
     } else {
         plume = false;
         Boutonplume.style.color = "black";
+        feather.armed = false;
     }
 }
 
@@ -22,9 +25,12 @@ function PresenceBougie() {
         Boutonbougie.style.color = "red";
         plume = false;
         Boutonplume.style.color = "black";
+        candle.armed = true;
+        feather.armed = false;
     } else {
         bougie = false;
         Boutonbougie.style.color = "black";
+        candle.armed = false;
     }
 }
 
@@ -102,28 +108,25 @@ class Neurone {
     }
 
     fire(myself) {
-        if (myself.armed) {
-            if (!myself.active) {
-                myself.active = true;
-                myself.step = 0;
-            }
-            console.log("Neuron n° " + myself.number + " was fired.");
-            if (myself.step == myself.length) {
-                console.log(myself.connections)
-                for (let i of myself.connections) {
-                    i.fire(i);
-                    console.log("reached end of neuron");
+        if (exp_act) {
+            if (myself.armed) {
+                if (!myself.active) {
+                    myself.active = true;
+                    myself.step = 0;
                 }
-                myself.active = false
+                console.log("Neuron n° " + myself.number + " was fired.");
+                if (myself.step == myself.length) {
+                    for (let i of myself.connections) {
+                        i.fire(i);
+                    }
+                    myself.active = false
+                } else {
+                    setTimeout(myself.fire, myself.tstep, myself);
+                }
+                myself.step++;
             } else {
-                setTimeout(myself.fire, myself.tstep, myself);
+                myself.fired = false;
             }
-            myself.step++;
-            console.log(myself.step)
-            console.log(myself.length)
-            console.log("debug")
-        } else {
-            myself.fired = false;
         }
     }
 }
@@ -150,14 +153,14 @@ class Input {
     connections = [];
 
     constructor(x, y) {
-        this.startx = x;
+        this.startx = 1000;
         this.endx = x;
-        this.starty = y;
+        this.starty = 1000;
         this.endy = y;
     }
 
     fire(myself) {
-        if (this.armed) {
+        if (myself.armed) {
             for (let i of myself.connections) {
                 i.fire(i);
             }
