@@ -10,9 +10,12 @@ function PresencePlume() {
         Boutonplume.style.color = "red";
         bougie = false;
         Boutonbougie.style.color = "black";
+        feather.armed = true;
+        candle.armed = false
     } else {
         plume = false;
         Boutonplume.style.color = "black";
+        feather.armed = false;
     }
 }
 
@@ -22,9 +25,12 @@ function PresenceBougie() {
         Boutonbougie.style.color = "red";
         plume = false;
         Boutonplume.style.color = "black";
+        candle.armed = true;
+        feather.armed = false;
     } else {
         bougie = false;
         Boutonbougie.style.color = "black";
+        candle.armed = false;
     }
 }
 
@@ -34,27 +40,27 @@ let addneuronevalue = false
 let removeneuronevalue = false
 let Btnaddneurone = document.getElementById("addneuronebtn")
 let Botnremoveneurone = document.getElementById("removeneuronebtn")
-function addneurone(){
-    if (addneuronevalue == false){
+function addneurone() {
+    if (addneuronevalue == false) {
         addneuronevalue = true;
-        Btnaddneurone.style.color="red";
+        Btnaddneurone.style.color = "red";
         removeneuronevalue = false;
-        Botnremoveneurone.style.color="black";
-    }else{
+        Botnremoveneurone.style.color = "black";
+    } else {
         addneuronevalue = false;
-        Btnaddneurone.style.color="black";
+        Btnaddneurone.style.color = "black";
     }
 }
 
-function removeneurone(){
-    if (removeneuronevalue == false){
+function removeneurone() {
+    if (removeneuronevalue == false) {
         removeneuronevalue = true;
-        Botnremoveneurone.style.color="red";
+        Botnremoveneurone.style.color = "red";
         addneuronevalue = false;
-        Btnaddneurone.style.color="black";
-    }else{
+        Btnaddneurone.style.color = "black";
+    } else {
         removeneuronevalue = false;
-        Botnremoveneurone.style.color="black";
+        Botnremoveneurone.style.color = "black";
     }
 }
 
@@ -102,29 +108,78 @@ class Neurone {
     }
 
     fire(myself) {
-        if (myself.armed) {
-            if (!myself.active) {
-                myself.active = true;
-                myself.step = 0;
-            }
-            console.log("Neuron n° " + myself.number + " was fired.");
-            myself.animate_step();
-            if (myself.step == myself.length) {
-                console.log(myself.connections)
-                for (let i of myself.connections) {
-                    i.fire(i);
-                    console.log("reached end of neuron");
-                    myself.active = false
+        if (exp_act) {
+            if (myself.armed) {
+                if (!myself.active) {
+                    myself.active = true;
+                    myself.step = 0;
                 }
+                console.log("Neuron n° " + myself.number + " was fired.");
+                if (myself.step == myself.length) {
+                    for (let i of myself.connections) {
+                        i.fire(i);
+                    }
+                    myself.active = false
+                } else {
+                    setTimeout(myself.fire, myself.tstep, myself);
+                }
+                myself.step++;
             } else {
-                setTimeout(myself.fire, myself.tstep, myself);
+                myself.fired = false;
             }
-            myself.step++;
-
-            console.log("debug")
-        } else {
-            myself.fired = false;
         }
-    animate_step()
+    }
+}
+
+class Output {
+    constructor(x, y) {
+        this.startx = x;
+        this.starty = y;
+    }
+
+    fire(myself) {
+        cycle_body();
+    }
+
+    set_connections(lists) { }
+
+    get_value(value) {
+        return this[value];
+    }
+}
+
+class Input {
+    armed = false;
+    connections = [];
+
+    constructor(x, y) {
+        this.startx = 1000;
+        this.endx = x;
+        this.starty = 1000;
+        this.endy = y;
+    }
+
+    fire(myself) {
+        if (myself.armed) {
+            for (let i of myself.connections) {
+                i.fire(i);
+            }
+        }
+    }
+
+    set_connections(list) {
+        for (let i of list) {
+            let tempsx = i.get_value("startx");
+            let tempsy = i.get_value("starty");
+            let dx = Math.abs(tempsx - this.endx);
+            let dy = Math.abs(tempsy - this.endy);
+            if (dx < 20 && dy < 20) {
+                this.connections.push(i);
+            }
+        }
+    }
+
+    get_value(value) {
+        return this[value];
     }
 }
