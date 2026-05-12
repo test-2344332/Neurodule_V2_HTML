@@ -10,6 +10,25 @@ neurlist.push(neur4);
 const neur5 = new Neurone(150, 150, 300, 300, 6, 500, 4);
 neurlist.push(neur5);
 
+let neuronetoadd = [];
+
+
+function addneurone(val) {
+  if (neuronetoadd.length === 2){
+	neuronetoadd = [];
+  }
+
+  if (neuronetoadd.length < 2) {
+    neuronetoadd.push(val);
+  }
+
+  console.log(neuronetoadd); // ["Alpha", "Gamma"] par exemple
+}
+
+
+
+
+
 const BODY_IMG = 2;
 let active_bdy = 0;
 
@@ -35,7 +54,7 @@ function cycle_body() {
 	bdy_list[active_bdy].active = false;
 	active_bdy = (active_bdy + 1) % BODY_IMG;
 	bdy_list[active_bdy].active = true;
-	console.log(active_bdy);
+	// console.log(active_bdy);
 	setTimeout(cycle_body, 500);
 }
 
