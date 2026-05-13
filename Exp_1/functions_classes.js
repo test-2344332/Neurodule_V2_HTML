@@ -33,37 +33,6 @@ function PresenceBougie() {
         candle.armed = false;
     }
 }
-
-// ajouter neurone actif ou non
-let addneuronevalue = false
-// retirer neurone actif ou non
-let removeneuronevalue = false
-let Btnaddneurone = document.getElementById("addneuronebtn")
-let Botnremoveneurone = document.getElementById("removeneuronebtn")
-function addneurone() {
-    if (addneuronevalue == false) {
-        addneuronevalue = true;
-        Btnaddneurone.style.color = "red";
-        removeneuronevalue = false;
-        Botnremoveneurone.style.color = "black";
-    } else {
-        addneuronevalue = false;
-        Btnaddneurone.style.color = "black";
-    }
-}
-
-function removeneurone() {
-    if (removeneuronevalue == false) {
-        removeneuronevalue = true;
-        Botnremoveneurone.style.color = "red";
-        addneuronevalue = false;
-        Btnaddneurone.style.color = "black";
-    } else {
-        removeneuronevalue = false;
-        Botnremoveneurone.style.color = "black";
-    }
-}
-
 class Neurone {
     connections = [];
     active = false;
