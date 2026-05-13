@@ -140,7 +140,6 @@ class Customimage extends Element {
 		sizey,
 		obj
 	) {
-		console.log(obj)
 		super("image", posx, posy, depth, disp);
 		this.#prntx = prntx;
 		this.#prnty = prnty;
