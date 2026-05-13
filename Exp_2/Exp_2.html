@@ -5,8 +5,9 @@
     <title>Synapse</title>
     <link rel="stylesheet" href="../General/style.css">
 </head>
-
+<!-- body séparé en trois parties principales -->
 <body>
+    <!-- partie 1 la bannière -->
     <div class="header" id="banner">
         <h1>Neurodule V2</h1>
         <h2>Synapse</h2>
@@ -26,6 +27,7 @@
     </div>
     <hr>
     <div class="main">
+        <!-- zone d'instruction ou d'interaction par l'utilisateur, à gauche -->
         <div class="instructions">
             <div id="CommandesSpecifiques">
                 <div id="size">
@@ -41,6 +43,7 @@
                     <div id="tetrodotoxine" onclick="changetetrodotoxine()">injecter tétrodotoxine</div>
                 </div>
             </div>
+            <!-- controles communs à toute les expériences -->
             <div id="CommandesGenerales">
                 <div class="comline" id="startstop">
                     <div class="com" id="startbutton" onclick="startexp()">start</div>
@@ -56,8 +59,8 @@
                 </div>
             </div>
         </div>
-
-        <div class="experiment"> The content of the document</div>
+<!-- zone d'affichage de l'expérience -->
+        <div class="experiment">expérience </div>
 </div>
         <script src="../General/stylescript.js"></script>
         <script src="Exp_2_script.js"></script>

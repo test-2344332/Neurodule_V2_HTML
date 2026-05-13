@@ -30,6 +30,7 @@ function passagelabo(){
     commandeslabo.style.display="block";
 }
 
+// controles d'ajout ou retrait des poisons
 function changecurare(){
     if(presencecurare == false){
         presencecurare = true

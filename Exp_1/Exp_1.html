@@ -4,14 +4,14 @@
     <title>Arc réflexe</title>
     <link rel="stylesheet" href="../General/style.css" />
   </head>
-
+<!-- body séparé en trois parties principales -->
   <body>
+    <!-- partie 1 la bannière -->
     <div class="header" id="banner">
       <h1>Neurodule V2</h1>
       <h2>Arc réflexe</h2>
       <div class="leftfilling"></div>
-      <a href="../Homepage/Homepage.html" class="intlink" id="homebutton"
-        >Home</a>
+      <a href="../Homepage/Homepage.html" class="intlink" id="homebutton">Home</a>
       <div class="dropdown">
         <div class="hamburger" onclick="affichage_menu()">
           <div class="hambar" id="hambar1"></div>
@@ -30,6 +30,7 @@
     </div>
     <hr />
     <div class="main">
+       <!-- zone d'instruction ou d'interaction par l'utilisateur, à gauche -->
       <div class="instructions">
         <div id="CommandesSpecifiques">
           <div id="plume" onclick="PresencePlume()">plume</div>
@@ -43,6 +44,7 @@
           <input type="button" id="neuronemuscle" value="muscle"onclick="addneurone(3)" />
           <input type="button" id="neuronemain" value="main"onclick="addneurone(4)" />
         </div>
+        <!-- controles communs à toute les expériences -->
         <div id="CommandesGenerales">
                 <div class="comline" id="startstop">
                     <div class="com" id="startbutton" onclick="startexp()">start</div>
@@ -58,7 +60,8 @@
                 </div>
             </div>
         </div>
-      <div class="experiment"><canvas id="disp"> </canvas> The content of the document</div>
+        <!-- zone d'affichage de l'expérience -->
+      <div class="experiment"><canvas id="disp"> </canvas>expérience </div>
     </div>
     <script src="../General/stylescript.js"></script>
     <script src="functions_classes.js"></script>

@@ -22,7 +22,7 @@ function addneurone(val) {
     neuronetoadd.push(val);
   }
 
-  console.log(neuronetoadd); // ["Alpha", "Gamma"] par exemple
+  console.log(neuronetoadd);
 }
 
 
