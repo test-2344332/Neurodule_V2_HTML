@@ -38,6 +38,7 @@ class Neurone {
     active = false;
     armed = false;
     step = 0;
+    old_step = 0;
     tstep = 0;
     startx;
     starty;
@@ -45,6 +46,7 @@ class Neurone {
     endy;
     length = 0;
     number;
+    anim_list = [];
 
     constructor(startx, starty, endx, endy, length, tstep, nb) {
         this.startx = startx;
@@ -77,6 +79,13 @@ class Neurone {
     }
 
     fire(myself) {
+        if (myself.length == 1) {
+            console.log("interneurone");
+            console.log(candle.armed)
+            if (candle.armed == false) {
+                return;
+            }
+        }
         if (exp_act) {
             if (myself.armed) {
                 if (!myself.active) {
@@ -84,6 +93,7 @@ class Neurone {
                     myself.step = 0;
                 }
                 console.log("Neuron n° " + myself.number + " was fired.");
+                myself.animate(myself);
                 if (myself.step == myself.length) {
                     for (let i of myself.connections) {
                         i.fire(i);
@@ -92,10 +102,24 @@ class Neurone {
                 } else {
                     setTimeout(myself.fire, myself.tstep, myself);
                 }
+                myself.old_step = myself.step;
                 myself.step++;
             } else {
                 myself.fired = false;
             }
+        }
+    }
+
+    animate(myself) {
+        let old_anim = myself.anim_list[myself.old_step];
+        let anim = myself.anim_list[myself.step];
+        if (typeof old_anim === "undefined") { }
+        else {
+            old_anim.active = false;
+        }
+        if (typeof anim === "undefined") { }
+        else {
+            anim.active = true;
         }
     }
 }
@@ -129,6 +153,7 @@ class Input {
     }
 
     fire(myself) {
+        console.log("firing")
         if (myself.armed) {
             for (let i of myself.connections) {
                 i.fire(i);
