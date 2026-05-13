@@ -85,9 +85,29 @@ neurlist.push(muscle);
 neurlist.push(candle);
 neurlist.push(feather);
 
-for (let el of neurlist) {
-	el.set_connections(neurlist);
+let neuronetoadd = [];
+
+
+function addneurone(val) {
+  if (neuronetoadd.length === 2){
+	neuronetoadd = [];
+  }
+
+  if (neuronetoadd.length < 2) {
+    neuronetoadd.push(val);
+  }
+
+  console.log(neuronetoadd);
 }
+
+
+
+
+
+const BODY_IMG = 2;
+let active_bdy = 0;
+
+let bdy_list = [];
 
 image_crps.onload = function () {
 	body2 = new Customimage(0, 0, 0, display, 600, 914, image_crps, 575, 50, 300, 457);
