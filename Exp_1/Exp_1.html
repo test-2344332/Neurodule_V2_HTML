@@ -1,71 +1,74 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Arc réflexe</title>
-    <link rel="stylesheet" href="../General/style.css" />
-  </head>
+
+<head>
+  <title>Arc réflexe</title>
+  <link rel="stylesheet" href="../General/style.css" />
+</head>
 <!-- body séparé en trois parties principales -->
-  <body>
-    <!-- partie 1 la bannière -->
-    <div class="header" id="banner">
-      <h1>Neurodule V2</h1>
-      <h2>Arc réflexe</h2>
-      <div class="leftfilling"></div>
-      <a href="../Homepage/Homepage.html" class="intlink" id="homebutton">Home</a>
-      <div class="dropdown">
-        <div class="hamburger" onclick="affichage_menu()">
-          <div class="hambar" id="hambar1"></div>
-          <div class="hambar" id="hbar2"></div>
-          <div class="hambar" id="hbar3"></div>
+
+<body>
+  <!-- partie 1 la bannière -->
+  <div class="header" id="banner">
+    <h1>Neurodule V2</h1>
+    <h2>Arc réflexe</h2>
+    <div class="leftfilling"></div>
+    <a href="../Homepage/Homepage.html" class="intlink" id="homebutton">Home</a>
+    <div class="dropdown">
+      <div class="hamburger" onclick="affichage_menu()">
+        <div class="hambar" id="hambar1"></div>
+        <div class="hambar" id="hbar2"></div>
+        <div class="hambar" id="hbar3"></div>
+      </div>
+      <div class="navigationlist" id="navigationlist">
+        <div class="mbutton">
+          <a class="mlink" href="../Exp_2/Exp_2.html" id="exp2">Synapse</a>
         </div>
-        <div class="navigationlist" id="navigationlist">
-          <div class="mbutton">
-            <a class="mlink" href="../Exp_2/Exp_2.html" id="exp2">Synapse</a>
-          </div>
-          <div class="mbutton">
-            <a class="mlink" href="../Exp_3/Exp_3.html" id="exp3">Influx nerveux</a>
-          </div>
+        <div class="mbutton">
+          <a class="mlink" href="../Exp_3/Exp_3.html" id="exp3">Influx nerveux</a>
         </div>
       </div>
     </div>
-    <hr />
-    <div class="main">
-       <!-- zone d'instruction ou d'interaction par l'utilisateur, à gauche -->
-      <div class="instructions">
-        <div id="CommandesSpecifiques">
-          <div id="plume" onclick="PresencePlume()">plume</div>
-          <div id="bougie" onclick="PresenceBougie()">bougie</div>
-          <div id="addneuronebtn" onclick="addneurone()">ajouter neurone</div>
-          <div id="removeneuronebtn" onclick="removeneurone()">
-            retirer neurone
-          </div>
-          <input type="button" id="neuronecerveau" value="cerveau" onclick="addneurone(1)"/>
-          <input type="button" id="neuronemoelle" value="moelle" onclick="addneurone(2)"/>
-          <input type="button" id="neuronemuscle" value="muscle"onclick="addneurone(3)" />
-          <input type="button" id="neuronemain" value="main"onclick="addneurone(4)" />
+  </div>
+  <hr />
+  <div class="main">
+    <!-- zone d'instruction ou d'interaction par l'utilisateur, à gauche -->
+    <div class="instructions">
+      <div id="CommandesSpecifiques">
+        <div id="plume" onclick="PresencePlume()">plume</div>
+        <div id="bougie" onclick="PresenceBougie()">bougie</div>
+        <div id="addneuronebtn" onclick="addneurone()">ajouter neurone</div>
+        <div id="removeneuronebtn" onclick="removeneurone()">
+          retirer neurone
         </div>
-        <!-- controles communs à toute les expériences -->
-        <div id="CommandesGenerales">
-                <div class="comline" id="startstop">
-                    <div class="com" id="startbutton" onclick="startexp()">start</div>
-                    <div class="com" id="stopbutton" onclick="stopexp()">stop</div>
-                </div>
-                <div class="comline" id="pauseplusminus">
-                    <div class="com" id="minusbutton" onclick="goback()">&lt;&lt;</div>
-                    <div class="com" id="pauseplaybutton" onclick="pauseplay()">=</div>
-                    <div class="com" id="plusbutton" onclick="goforward()">>></div>
-                </div>
-                <div class="comline">
-                    <div class="com" id="restartbutton" onclick="restart()">restart</div>
-                </div>
-            </div>
+        <input type="button" id="neuronecerveau" value="cerveau" onclick="addneurone(1)" />
+        <input type="button" id="neuronemoelle" value="moelle" onclick="addneurone(2)" />
+        <input type="button" id="neuronemuscle" value="muscle" onclick="addneurone(3)" />
+        <input type="button" id="neuronemain" value="main" onclick="addneurone(4)" />
+      </div>
+      <!-- controles communs à toute les expériences -->
+      <div id="CommandesGenerales">
+        <div class="comline" id="startstop">
+          <div class="com" id="startbutton" onclick="startexp()">start</div>
+          <div class="com" id="stopbutton" onclick="stopexp()">stop</div>
         </div>
-        <!-- zone d'affichage de l'expérience -->
-      <div class="experiment"><canvas id="disp"> </canvas>expérience </div>
+        <div class="comline" id="pauseplusminus">
+          <div class="com" id="minusbutton" onclick="goback()">&lt;&lt;</div>
+          <div class="com" id="pauseplaybutton" onclick="pauseplay()">=</div>
+          <div class="com" id="plusbutton" onclick="goforward()">>></div>
+        </div>
+        <div class="comline">
+          <div class="com" id="restartbutton" onclick="restart()">restart</div>
+        </div>
+      </div>
     </div>
-    <script src="../General/stylescript.js"></script>
-    <script src="functions_classes.js"></script>
-    <script src="../script.js"></script>
-    <script src="main_script.js"></script>
-  </body>
+    <!-- zone d'affichage de l'expérience -->
+    <div class="experiment"><canvas id="disp"></canvas> expérience </div>
+  </div>
+  <script src="../General/stylescript.js"></script>
+  <script src="functions_classes.js"></script>
+  <script src="../script.js"></script>
+  <script src="main_script.js"></script>
+</body>
+
 </html>

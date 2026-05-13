@@ -15,54 +15,57 @@ let nervinbtn = document.getElementById("nervin")
 let tetrodotoxinebtn = document.getElementById("tetrodotoxine")
 
 
-function passage10000(){
+function passage10000() {
     labosynapse = false;
-    btn10000.style.display="none";
-    commandes10000.style.display="block";
-    btnlabo.style.display="block";
-    commandeslabo.style.display="none";
+    btn10000.style.display = "none";
+    commandes10000.style.display = "block";
+    btnlabo.style.display = "block";
+    commandeslabo.style.display = "none";
 }
-function passagelabo(){
+function passagelabo() {
     labosynapse = true;
-    btn10000.style.display="block";
-    commandes10000.style.display="none";
-    btnlabo.style.display="none";
-    commandeslabo.style.display="block";
+    btn10000.style.display = "block";
+    commandes10000.style.display = "none";
+    btnlabo.style.display = "none";
+    commandeslabo.style.display = "block";
 }
 
 // controles d'ajout ou retrait des poisons
-function changecurare(){
-    if(presencecurare == false){
+function changecurare() {
+    if (presencecurare == false) {
         presencecurare = true
         curarebtn.innerHTML = "retirer curare"
     }
-    else{
+    else {
         presencecurare = false
         curarebtn.innerHTML = "injecter curare"
     }
 
 }
 
-function changenervin(){
-    if(presencenervin == false){
+function changenervin() {
+    if (presencenervin == false) {
         presencenervin = true
         nervinbtn.innerHTML = "retirer nervin"
     }
-    else{
+    else {
         presencenervin = false
         nervinbtn.innerHTML = "injecter nervin"
     }
 
 }
 
-function changetetrodotoxine(){
-    if(presencetetrodotoxine == false){
+function changetetrodotoxine() {
+    if (presencetetrodotoxine == false) {
         presencetetrodotoxine = true
         tetrodotoxinebtn.innerHTML = "retirer tetrodotoxine"
     }
-    else{
+    else {
         presencetetrodotoxine = false
         tetrodotoxinebtn.innerHTML = "injecter tetrodotoxine"
     }
 
 }
+
+const music = new Audio("C:../freesound_community-wilhelm-1-86895.mp3");
+music.play();
