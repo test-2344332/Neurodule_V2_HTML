@@ -84,10 +84,10 @@ h1 {
     border: 2px solid #000;
     border-radius: 2px;
 }
-
+/*
 .navigationlist:hover {
-    /*display:block;*/
-}
+    display:block;
+}*/
 
 .mbutton {
     padding: 10px;
