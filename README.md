@@ -1,0 +1,1 @@
+[![pages-build-deployment](https://github.com/test-2344332/Neurodule_V2_HTML/actions/workflows/pages/pages-build-deployment/badge.svg?branch=pub)](https://github.com/test-2344332/Neurodule_V2_HTML/actions/workflows/pages/pages-build-deployment)
